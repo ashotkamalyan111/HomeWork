@@ -1,17 +1,19 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿Console.WriteLine("Введите первое число: ");
+            int num_A = Convert.ToInt32(Console.ReadLine());
 
+            Console.WriteLine("Введите второе число: ");
+            int num_B = Convert.ToInt32(Console.ReadLine());
 
-Writeline ("Введите два рзличных числа);
-ReadLine (x,y);
+            if (num_A > num_B)
+            {
+                Console.WriteLine("Первое число " + num_A + " больше чем второе " + num_B);
+            }
+            else
+            {
+                Console.WriteLine("Второе число " + num_B + " больше чем первое " + num_A);
+            }
+            break;
 
-if x>y
-writeline (x "- больше");
-writeline (y " - меньше");
-
-else y>x
-writeline (y "- больше");
-writeline (x "-меньше");
 
 
 
