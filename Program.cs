@@ -77,3 +77,99 @@ int i = 1;
             {
                 Console.WriteLine("Нет чётных чисел!");
             }
+
+
+
+
+
+
+            // вторая домашка
+
+
+            using System;
+
+namespace Task10
+{
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            // Задача 456 -> 5
+
+            int number = Convert.ToInt32(Console.ReadLine());
+            var value1 = (number % 100); // 456 -> 56
+            var value2 = value1 / 10; // 56 -> 5
+
+            Console.WriteLine(value2);
+            Console.ReadKey();
+        }
+    }
+}
+
+
+
+
+
+
+using System;
+
+namespace Task13
+{
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            // 456 -> 6
+            // 782 -> 2
+            // 918 ->
+            
+            var input = Convert.ToInt32(Console.ReadLine());
+
+            if (input < 100)
+            {
+                Console.WriteLine("третьей цифры нет");
+            }
+            else
+            {
+                Console.WriteLine(input % 10);
+            }
+
+            Console.ReadKey();
+        }
+    }
+}
+
+
+
+
+
+using System;
+
+namespace Task15
+{
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            // 1 -> нет
+            // 6 -> да
+            
+            int input = Convert.ToInt32(Console.ReadLine());
+
+            if (input < 1 || input > 7)
+            {
+                Console.WriteLine("ошибка ввода");
+            }
+            else
+            {
+                if (input > 5)
+                {
+                    Console.WriteLine("да");
+                }
+                else
+                {
+                    Console.WriteLine("нет");
+                }
+            }
+        }
+    }
