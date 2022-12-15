@@ -1,79 +1,80 @@
-using System;
+Console.WriteLine("Введите первое число: ");
+            int num_A = Convert.ToInt32(Console.ReadLine());
 
-namespace Task21
-{
-    internal class Program
-    {
-        public static void Main(string[] args)
-        {
-            // 12821 -> да
-            // 14212 -> нет
-            
-            int input = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите второе число: ");
+            int num_B = Convert.ToInt32(Console.ReadLine());
 
-            int value1 = input / 10000;
-            int value5 = input % 10;
-
-            int value2 = (input % 10000) / 1000;
-            int value4 = (input % 100) / 10;
-
-            if (value1 == value5 && value2 == value4)
+            if (num_A > num_B)
             {
-                Console.WriteLine("да");
+                Console.WriteLine("Первое число " + num_A + " больше чем второе " + num_B);
             }
             else
             {
-                Console.WriteLine("нет");
+                Console.WriteLine("Второе число " + num_B + " больше чем первое " + num_A);
             }
-        }
-    }
-}
-using System;
+            break;
 
-namespace Task21_2
-{
-    internal class Program
-    {
-        public static void Main(string[] args)
-        {
-            Console.Write("Input Xa: ");
-            double xa = Convert.ToDouble(Console.ReadLine());
-            
-            Console.Write("Input Ya: ");
-            double ya = Convert.ToDouble(Console.ReadLine());
-            
-            Console.Write("Input Za: ");
-            double za = Convert.ToDouble(Console.ReadLine());
-            
-            Console.Write("Input Xb: ");
-            double xb = Convert.ToDouble(Console.ReadLine());
-            
-            Console.Write("Input Yb: ");
-            double yb = Convert.ToDouble(Console.ReadLine());
-            
-            Console.Write("Input Zb: ");
-            double zb = Convert.ToDouble(Console.ReadLine());
-            
-            double distance = Math.Sqrt(Math.Pow(xb - xa, 2) + Math.Pow(yb - ya, 2) + Math.Pow(zb - za, 2));
-            
-            Console.WriteLine(distance);
-        }
-    }
-using System;
 
-namespace Task23
-{
-    internal class Program
-    {
-        public static void Main(string[] args)
-        {
-            int n = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите 3 числа:");
+            int num_1 = Convert.ToInt32(Console.ReadLine());
+            int num_2 = Convert.ToInt32(Console.ReadLine());
+            int num_3 = Convert.ToInt32(Console.ReadLine());
 
-            for (int i = 1; i <= n; i++)
+            int max = num_1;
+
+            if (num_2 > max)
             {
-                Console.Write($"{i * i * i}, ");
+                max = num_2;
             }
-        }
+
+            if (num_3 > max)
+            {
+                max = num_3;
+            }
+
+            Console.WriteLine("Наибольшее из введённых чисел -> " + max);
+            break;
+
+            
+            Console.WriteLine("Введите число:");
+            num = Convert.ToInt32(Console.ReadLine());
+
+            if (num % 2 == 1)
+            {
+                Console.WriteLine("Число " + num + " является: НЕЧЁТНЫМ");
+            }
+            else
+            {
+                Console.WriteLine("Число " + num + "является: ЧЁТНЫМ");
+            }
+            break;
+
+
+            int i = 1;
+            bool not = true;
+
+            Console.WriteLine("Введите число:");
+            num = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Чётные числа от 1 до " + num);
+            while (i <= num)
+            {
+                if (i % 2 != 1)
+                {
+                    Console.Write(i + ", ");
+                    not = false;
+                }
+                i++;
+            }
+
+            if (not)
+            {
+                Console.WriteLine("Нет чётных чисел!");
+            }
+            break;
+
+        default:
+            begin = false;
+            break;
     }
 }
- 
