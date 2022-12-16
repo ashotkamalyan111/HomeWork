@@ -1,80 +1,100 @@
-Console.WriteLine("Введите первое число: ");
-            int num_A = Convert.ToInt32(Console.ReadLine());
+using System;
 
-            Console.WriteLine("Введите второе число: ");
-            int num_B = Convert.ToInt32(Console.ReadLine());
+namespace Task25
+{
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            // 3, 5 => 243 (3^5)
+            // 2, 4 => 16 (2^4)
+            
+            Console.Write("Input A: ");
+            var a = Convert.ToInt32(Console.ReadLine());
+            
+            Console.Write("Input B: ");
+            var b = Convert.ToInt32(Console.ReadLine());
 
-            if (num_A > num_B)
-            {
-                Console.WriteLine("Первое число " + num_A + " больше чем второе " + num_B);
-            }
-            else
-            {
-                Console.WriteLine("Второе число " + num_B + " больше чем первое " + num_A);
-            }
-            break;
+            int result = 1;
 
-
-            Console.WriteLine("Введите 3 числа:");
-            int num_1 = Convert.ToInt32(Console.ReadLine());
-            int num_2 = Convert.ToInt32(Console.ReadLine());
-            int num_3 = Convert.ToInt32(Console.ReadLine());
-
-            int max = num_1;
-
-            if (num_2 > max)
-            {
-                max = num_2;
-            }
-
-            if (num_3 > max)
-            {
-                max = num_3;
-            }
-
-            Console.WriteLine("Наибольшее из введённых чисел -> " + max);
-            break;
-
-            
-            Console.WriteLine("Введите число:");
-            num = Convert.ToInt32(Console.ReadLine());
-
-            if (num % 2 == 1)
-            {
-                Console.WriteLine("Число " + num + " является: НЕЧЁТНЫМ");
-            }
-            else
-            {
-                Console.WriteLine("Число " + num + "является: ЧЁТНЫМ");
-            }
-            break;
+            for (int i = 0; i < b; i++)
+            {
+                result *= a;
+            }
+            
+            Console.WriteLine(result);
+        }
+    }
+}
 
 
-            int i = 1;
-            bool not = true;
 
-            Console.WriteLine("Введите число:");
-            num = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Чётные числа от 1 до " + num);
-            while (i <= num)
-            {
-                if (i % 2 != 1)
-                {
-                    Console.Write(i + ", ");
-                    not = false;
-                }
-                i++;
-            }
+using System;
 
-            if (not)
-            {
-                Console.WriteLine("Нет чётных чисел!");
-            }
-            break;
+namespace Task27
+{
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            // 452 -> 11
+            // 82 -> 10
+            // 9012 -> 12
+            
+            var number = Convert.ToInt32(Console.ReadLine()); // 452
 
-        default:
-            begin = false;
-            break;
-    }
+            int sum = 0;
+            
+            // number = 452 => 4 + 5 + 2 = 11 
+            // sum = 0
+            
+            // sum+:    452 -> 452 % 10 = 2 ! // 29 строка  sum = 2
+            // number:  452 -> 452 / 10 = 45  // 30 строка  number = 45
+            
+            // sum+:    45 -> 45 % 10 = 5 !   // 29 строка  sum = 2 + 5 =7
+            // number:  45 -> 45 / 10 = 4     // 30 строка  number 4
+            
+            // sum+:     4 % 10 = 4 !          // 29        sum = 7 + 4 = 11
+            // number:   4 / 10 = 0            // 30        number = 0
+
+            do
+            {
+                sum = sum + number % 10; // 0 + (452 % 10 = 2) = 2  //  2 + (45 % 10 = 5) = 7  //  7 + (4 % 10 = 4) = 11
+                number = number / 10; // 452 / 10 = 45
+            } while (number > 0);
+            
+            Console.WriteLine(sum);
+        }
+    }
+}
+
+
+
+
+using System;
+
+namespace Task29
+{
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            var random = new Random();
+
+            var length = random.Next(1, 99);
+
+            var array = new int[length];
+            
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = random.Next();
+            }
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.WriteLine(array[i]);
+            }
+        }
+    }
 }
