@@ -1,28 +1,34 @@
 using System;
 
-namespace Task25
+namespace Task34
 {
     internal class Program
     {
         public static void Main(string[] args)
         {
-            // 3, 5 => 243 (3^5)
-            // 2, 4 => 16 (2^4)
-            
-            Console.Write("Input A: ");
-            var a = Convert.ToInt32(Console.ReadLine());
-            
-            Console.Write("Input B: ");
-            var b = Convert.ToInt32(Console.ReadLine());
+            var random = new Random();
+            var length = random.Next(1, 100);
 
-            int result = 1;
+            var array = new int[length];
 
-            for (int i = 0; i < b; i++)
+            for (int i = 0; i < array.Length; i++)
             {
-                result *= a;
+                array[i] = random.Next(100, 999);
+            }
+
+            int count = 0; // счетчик
+            
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.WriteLine(array[i]); // вывели в консоль
+
+                if (array[i] % 2 == 0) // проверяем, что число делится на 2 без остатка
+                {
+                    count++; //count = count + 1;
+                }
             }
             
-            Console.WriteLine(result);
+            Console.WriteLine("Число четных чисел: " + count);
         }
     }
 }
@@ -30,41 +36,37 @@ namespace Task25
 
 
 
+
 using System;
 
-namespace Task27
+namespace Task35
 {
     internal class Program
     {
         public static void Main(string[] args)
         {
-            // 452 -> 11
-            // 82 -> 10
-            // 9012 -> 12
-            
-            var number = Convert.ToInt32(Console.ReadLine()); // 452
+            var array = new int[123];
 
-            int sum = 0;
-            
-            // number = 452 => 4 + 5 + 2 = 11 
-            // sum = 0
-            
-            // sum+:    452 -> 452 % 10 = 2 ! // 29 строка  sum = 2
-            // number:  452 -> 452 / 10 = 45  // 30 строка  number = 45
-            
-            // sum+:    45 -> 45 % 10 = 5 !   // 29 строка  sum = 2 + 5 =7
-            // number:  45 -> 45 / 10 = 4     // 30 строка  number 4
-            
-            // sum+:     4 % 10 = 4 !          // 29        sum = 7 + 4 = 11
-            // number:   4 / 10 = 0            // 30        number = 0
+            var random = new Random();
 
-            do
+            for (int i = 0; i < array.Length; i++)
             {
-                sum = sum + number % 10; // 0 + (452 % 10 = 2) = 2  //  2 + (45 % 10 = 5) = 7  //  7 + (4 % 10 = 4) = 11
-                number = number / 10; // 452 / 10 = 45
-            } while (number > 0);
+                array[i] = random.Next(200);
+            }
+
+            int count = 0; // счетчик
             
-            Console.WriteLine(sum);
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.WriteLine(array[i]);
+
+                if (array[i] > 10 && array[i] < 99)
+                {
+                    count++;
+                }
+            }
+            
+            Console.WriteLine($"Чисел от 10 до 99: {count}");
         }
     }
 }
@@ -74,7 +76,7 @@ namespace Task27
 
 using System;
 
-namespace Task29
+namespace Task36
 {
     internal class Program
     {
@@ -82,19 +84,129 @@ namespace Task29
         {
             var random = new Random();
 
-            var length = random.Next(1, 99);
+            var length = random.Next(1, 100);
+
+            var array = new int[length];
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = random.Next(999);
+            }
+
+            // способ 1: проверяем в общем цикле
+            
+            int sum = 0;
+            
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.WriteLine(array[i]);
+
+                if (i % 2 != 0)
+                {
+                    sum += array[i];
+                }
+            }
+
+            Console.WriteLine($"Summ1: {sum}");
+            
+            // способ 2: пропускаем четные (второй, четвертый, шестой)
+            
+            int sum2 = 0;
+            
+            for (int i = 0; i < array.Length; i+=2)
+            {
+                sum2 += array[i];
+            }
+            
+            Console.WriteLine($"Summ2: {sum}");
+        }
+    }
+}
+
+
+
+using System;
+
+namespace Task37
+{
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            //Задача 37: Найдите произведение пар чисел в одномерном массиве.
+            //Парой считаем первый и последний элемент, второй и предпоследний
+            //и т.д. Результат запишите в новом массиве.
+            
+            // { 3, 8, 5, 4, 2 } -> { 3 * 2, 8 * 4, 5 } -> 6, 32, 5
+
+            var array = new[] { 3, 8, 5, 4, 2 };
+
+            var lenght = array.Length / 2 + array.Length % 2;
+
+            var result = new int[lenght];
+
+            for (int i = 0; i < lenght; i++)
+            {
+                if (i != array.Length - 1 - i)
+                {
+                    result[i] = array[i] * array[array.Length - 1 - i];
+                }
+                else
+                {
+                    result[i] = array[i];
+                }
+            }
+
+            foreach (var value in result)
+            {
+                Console.WriteLine(value);
+            }
+        }
+    }
+}
+
+
+
+
+using System;
+
+namespace Task38
+{
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            // Задайте массив вещественных чисел.
+            // Найдите разницу между максимальным и минимальным элементов массива.
+            
+            var random = new Random();
+
+            var length = random.Next(1, 100);
 
             var array = new int[length];
             
             for (int i = 0; i < array.Length; i++)
             {
-                array[i] = random.Next();
+                array[i] = random.Next(0, 999);
             }
 
-            for (int i = 0; i < array.Length; i++)
+            var min = array[0]; // исходное минимальное значение
+            var max = array[0]; // исходное максимальное значение
+
+            for (int i = 1; i < array.Length; i++)
             {
-                Console.WriteLine(array[i]);
+                if (array[i] < min)
+                {
+                    min = array[i];
+                }
+                
+                if (array[i] > max)
+                {
+                    max = array[i];
+                }
             }
+
+            Console.WriteLine(max - min);
         }
     }
-}
+} 
